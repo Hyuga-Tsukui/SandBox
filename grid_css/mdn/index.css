@@ -10,8 +10,15 @@
 
 
 /*暗黙的と明示的なグリッド*/
+/*.wrapper {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(3, 1fr);*/
+/*    grid-auto-rows: 200px;*/
+/*}*/
+
+/*トラックのサイズ指定と minmax()*/
 .wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 200px;
+    grid-auto-rows: minmax(100px, auto);
 }
