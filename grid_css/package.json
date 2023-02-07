@@ -1,0 +1,10 @@
+{
+  "name": "grid_css",
+  "version": "1.0.0",
+  "devDependencies": {
+    "prettier": "2.8.3"
+  },
+  "volta": {
+    "node": "16.14.2"
+  }
+}

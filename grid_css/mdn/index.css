@@ -1,0 +1,9 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr);
+}
+
+/*暗黙的なグリッド定義のサイズ確認*/
+.four {
+    height: 500px;
+}
