@@ -1,17 +1,34 @@
-import { useState } from "react";
-
 import "./App.css";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <div style={{ display: "flex", flexDirection: "row", gap: "8px" }}>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/posts">Posts</Link>
+        <NavLink
+          to="/"
+          style={({ isActive }) =>
+            isActive ? { border: "1px solid", borderRadius: "4px" } : undefined
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="about"
+          style={({ isActive }) =>
+            isActive ? { border: "1px solid", borderRadius: "4px" } : undefined
+          }
+        >
+          About
+        </NavLink>
+        <NavLink
+          to="posts"
+          style={({ isActive }) =>
+            isActive ? { border: "1px solid", borderRadius: "4px" } : undefined
+          }
+        >
+          Posts
+        </NavLink>
       </div>
       <Outlet />
     </div>

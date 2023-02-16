@@ -17,17 +17,11 @@ export const router = createBrowserRouter([
       {
         path: "posts",
         element: <Posts />,
-        children: [
-          {
-            path: ":postId",
-            element: <Post />,
-          },
-        ],
       },
-      // {
-      //   path: "posts/:postId",
-      //   element: <Post />,
-      // },
+      {
+        path: "posts/:postId",
+        element: <Post />,
+      },
       {
         path: "about",
         element: <About />,
