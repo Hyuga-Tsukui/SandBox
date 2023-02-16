@@ -1,8 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 export const Post: React.FC = () => {
   const { postId } = useParams();
+
+  const [searchParams, setSearchPrams] = useSearchParams();
+  console.log(searchParams.get("query"));
+  console.log(searchParams.get("page"));
   return (
     <div>
       <h1>{`Post ${postId}`}</h1>
@@ -12,6 +16,9 @@ export const Post: React.FC = () => {
         ea, sapiente non alias doloribus, labore necessitatibus corrupti
         voluptatem.
       </article>
+      <button onClick={() => setSearchPrams({ query: "hoge", page: "1" })}>
+        Seach
+      </button>
     </div>
   );
 };
