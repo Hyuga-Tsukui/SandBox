@@ -1,3 +1,6 @@
 const message: string = "Hello, world!";
 
-console.log(message);
+const moustNumber: number = 9007199254740993;
+
+console.log(moustNumber);
+console.log("Hello \u{796d} world!");
