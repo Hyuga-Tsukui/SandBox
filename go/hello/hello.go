@@ -2,19 +2,17 @@ package main
 
 import (
 	"fmt"
-	"log"
-
-	"example.com/greetings"
+	"reflect"
 )
 
+var pl = fmt.Println
+
 func main() {
-
-	log.SetPrefix("greetings: ")
-	log.SetFlags(0)
-
-	message, err := greetings.Hello("")
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(message)
+	// int, float64, bool, string
+	var MaxInt uint64 = 0
+	pl(reflect.TypeOf(42))
+	pl(reflect.TypeOf(4.2))
+	pl(reflect.TypeOf(true))
+	pl(reflect.TypeOf("hello"))
+	pl(reflect.TypeOf(MaxInt))
 }
