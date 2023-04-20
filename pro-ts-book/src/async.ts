@@ -1,27 +1,38 @@
-import { readFile } from "fs";
+import { readFile } from "fs/promises";
+import path from "path";
+import { fileURLToPath } from "url";
+const filePath = fileURLToPath(import.meta.url);
+const fileDir = path.dirname(filePath);
+const dataFile = path.join(fileDir, "../foo.txt");
 
-const sleep = (duration: number) => {
-    return new Promise<void>((resolve, reject) => {
-        setTimeout(resolve, duration);
-    })
+const wait = (duration: number) => {
+  return new Promise<void>((resolve) => {
+    setTimeout(resolve, duration);
+  });
 };
 
-sleep(3000).then(() => {
-    console.log("3秒経ちました");
-}).catch((reasone: unknown) => {
-    console.log("失敗しました", reasone)
-})
-
-
-const promiseReadFile = (path: string, encoding: BufferEncoding) => {
-    return new Promise<string>((resolve, reject) => {
-        readFile(path, encoding, (err, result) => {
-            resolve(result);
-        });
-    })
+const timeout = async (time: number) => {
+  await wait(time);
+  throw new Error("Timeout!");
 };
 
-const promise = promiseReadFile("foo.txt", "utf-8");
-promise.then((result) => {
-    console.log(result);
-})
+const p = readFile(dataFile, { encoding: "utf8" });
+
+const result = await Promise.race([p, timeout(0)]).catch(() => {
+    console.log("fallback");
+    return "";
+});
+
+let count = 0;
+let currentIndex = 0;
+
+while (true) {
+  const nextIndex = result.indexOf("uhyo", currentIndex);
+  if (nextIndex >= 0) {
+    count++;
+    currentIndex = nextIndex + 1;
+  } else {
+    break;
+  }
+}
+console.log(count);
