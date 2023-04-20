@@ -51,4 +51,3 @@ function xRepeat(str: string, num: number) {
 }
 
 call(fill, 10, "a");
-
