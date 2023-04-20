@@ -25,7 +25,3 @@ const obj: FooBarBaz = {
  * 別の方法として、S型はTの部分型であることを明示的に定義する名前的部分型というものもある。（一般にサブタイプを定義する継承による方法）
  */
 const obj2: FooBar = obj;
-
-type Animal = {
-  age: number;
-};
