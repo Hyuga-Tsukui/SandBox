@@ -7,8 +7,13 @@ type BB = ElementType2<number[]>
 
 type SecondArg<F> = F extends (a: infer B) => any ? B : never;
 
-type F = typeof Array['prototype']['at']
+type F = typeof Array['prototype']['slice']
 
 type AB = SecondArg<F>
 
 type ReturnType2<T> = T extends (...args: any[]) => infer R ? R : any;
+
+
+type C = ReturnType2<F>
+
+
