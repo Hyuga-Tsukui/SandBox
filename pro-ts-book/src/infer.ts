@@ -17,3 +17,14 @@ type ReturnType2<T> = T extends (...args: any[]) => infer R ? R : any;
 type C = ReturnType2<F>
 
 
+type ExcludeSample = Exclude<number | string, string>;
+
+
+type ExtractSample = Extract<number | string, string>;
+
+type NonNullableSample = NonNullable<{a?: number | null}['a']>
+
+
+type NullableObjType = {
+    a?: number | null;
+}
